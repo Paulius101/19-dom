@@ -1,0 +1,9 @@
+.pavadinimas {
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 40px;
+}
+.pomidoras {
+  color: red;
+  font-size: 20px;
+}
