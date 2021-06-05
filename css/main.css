@@ -19,10 +19,15 @@ form {
 }
 input,
 button {
-  /* padding: 0 20px; */
+  padding: 0 20px;
   font-size: 30px;
   line-height: 40px;
 }
+
+input [type='color'] {
+  padding: 0;
+}
+
 span {
   padding: 0 20px;
   border: 1px dotted red;
