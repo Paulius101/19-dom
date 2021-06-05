@@ -7,14 +7,22 @@ body {
   align-items: center;
   font-size: 30px;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 input,
 button {
-  padding: 0 20px;
+  /* padding: 0 20px; */
   font-size: 30px;
   line-height: 40px;
 }
-
 span {
   padding: 0 20px;
   border: 1px dotted red;
