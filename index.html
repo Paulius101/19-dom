@@ -6,27 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
+    <h1>Programuotoju uzeigele</h1>
     <form>
         <div class="form-row">
-            <label for="message">Tavo zinutes tekstas</label>
-            <input id="message" type="text">
+            <label for="customer">Kliento vardas</label>
+            <input id="customer" type="text">
         </div>
         <div class="form-row">
-            <label for="bg-color">Fono spalva</label>
-            <input id="bg-color" type="color">
+            <div class="inline">
+                <input id="sriuba" type="checkbox" name="color">
+                <label for="sriuba">Sriuba</label>
+            </div>
         </div>
         <div class="form-row">
-            <label for="text-color">Teksto spalva</label>
-            <input id="text-color" type="color">
+            <div class="inline">
+                <input id="patiekalas" type="checkbox" name="color">
+                <label for="patiekalas">Pagrindinis patiekalas</label>
+            </div>
         </div>
-        <button type="submit">Submit</button>
+        <div class="form-row">
+            <div class="inline">
+                <input id="desertas" type="checkbox" name="color">
+                <label for="desertas">Desertas</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <label>Gerimas</label>
+            <div class="inline">
+                <input name="gerimas" id="sultys" type="radio" value="sultys">
+                <label for="sultys">Sultys</label>
+            </div>
+            <div class="inline">
+                <input name="gerimas" id="gira" type="radio" value="gira">
+                <label for="gira">Gira</label>
+            </div>
+            <div class="inline">
+                <input name="gerimas" id="pienas" type="radio" value="pieno">
+                <label for="pienas">Pienas</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <button type="submit">Uzsakyti</button>
+        </div>
     </form>
-    <div>Tu parasei: <span></span></div>
+    <div class="order">Uzsakymas...</div>
 
     <script src="./js/main.js" type="module" defer></script>
 </body>
