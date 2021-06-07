@@ -1,28 +1,32 @@
-const buttonDOM = document.querySelector('button');
-const vardasDOM = document.querySelector('#customer');
-const sriubaDOM = document.querySelector('#sriuba');
-const patiekalasDOM = document.querySelector('#patiekalas');
-const desertasDOM = document.querySelector('#desertas');
-const gerimaiDOM = document.querySelectorAll('input[name="gerimas"]');
+const submitDOM = document.querySelector('button');
 const orderDOM = document.querySelector('.order');
-console.log(orderDOM);
+const nameDOM = document.querySelector('#customer');
+const sriubaDOM = document.querySelector('#sriuba');
+const pagrindinisPatiekalasDOM = document.querySelector('#patiekalas');
+const desertasDOM = document.querySelector('#desertas');
+const allGerimaiDOM = document.querySelectorAll('input[name="gerymas"]');
 
-buttonDOM.addEventListener('click', (event) => {
-    event.preventDefault();
 
-    function menuChecked(item) {
-        if (item.checked) {
-            return 'nori';
+function arNoriu(DOM) {
+    return DOM.checked ? 'nori' : 'nenori';
+}
+
+function kurisPazymetas(DOMlist) {
+    for (const itemDOM of DOMlist) {
+        if (itemDOM.checked) {
+            return itemDOM.value;
         }
-        return 'nenori';
     }
+}
 
-    function gerimasChecked(item) {
-        for (let i = 0; i < 3; i++)
-            if (item[i].checked) {
-                return item[i].value;
-            }
-    }
-
-    orderDOM.innerText = `Uzsakovas vardu ${vardasDOM.value}, ${menuChecked(sriubaDOM)} sriubos, ${menuChecked(patiekalasDOM)} pagrindinio patiekalo, ${menuChecked(desertasDOM)} deserto ir ${gerimasChecked(gerimaiDOM)} yra pasirinktas gerimas.`
+submitDOM.addEventListener('click', (e) => {
+    e.preventDefault();
+    let kreipinys = nameDOM.value === '' ? 'nepateikes vardo' : 'vardu ' + nameDOM.
+        value;
+    let gerimas = kurisPazymetas(allGerimaiDOM) ? `${kurisPazymetas(allGerimaiDOM)
+        }` + 'yra pasirinktas gerimas' : 'nepasirinko gerimo';
+    orderDOM.innerText = `Uzsakovas, ${kreipinys}  ${arNoriu(sriubaDOM)} sriubos, ${arNoriu(pagrindinisPatiekalasDOM)} pagrindinio patiekalo, ${arNoriu(desertasDOM)} deserto ir ${gerimas}.`;
 })
+
+
+
