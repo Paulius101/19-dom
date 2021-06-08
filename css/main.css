@@ -16,6 +16,9 @@ body {
   background: linear-gradient(45deg, rgb(70, 47, 6), rgb(128, 83, 2));
   box-shadow: 2px 2.5px orange;
 }
+.lenta:hover {
+  transform: scale(1.1);
+}
 
 .aikstele {
   display: flex;
