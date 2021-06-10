@@ -1,58 +1,30 @@
-function renderNav(selector, nuorodosList) {
-    const DOM = document.querySelector(selector);
-    if (!DOM) {
-        console.error(
-            'ERROR: pagal pateikta selector nepavyko rasti jokio DOM elemento'
-        );
-        return false;
-    }
-    if (typeof selector !== 'string' || selector === '') {
-        console.error(
-            'ERROR: selector turi buti ne tuscias stringas',
-            selector,
-            nuorodosList
-        );
-        return false;
-    }
-    if (!Array.isArray(nuorodosList) || nuorodosList.length === 0) {
-        console.log('ERROR: nuorodosList turi buti ne tuscias array');
-        return false;
-    }
+const submitDOM = document.querySelector('button');
+const selectDOM = document.querySelector('label');
+const optionDOM = document.querySelector('.option');
 
-    let HTML = '';
+selectDOM.insertAdjacentHTML('beforeend', `<select name="pets" id="pet-select">
+    <option value="">--Please choose an option--</option>
+    <option value="zuikis">Zuikis</option>
+    <option value="barsukas">Barsukas</option>
+    <option value="lape">Lape</option>
+    <option value="vilkas">Vilkas</option>
+    <option value="sernas">Sernas</option>
+    <option value="stirna">Stirna</option>
+    <option value="vovere">Vovere</option>
+</select>`)
 
 
-    for (const nuoroda in nuorodosList) {
-        HTML += `<a href="${nuoroda.href}">${nuoroda.title}</a > `;
+function kurisPazymetas(selectDOM) {
+    for (const option of selectDOM) {
+        if (option.selected) {
+            return option.value;
+        }
     }
-
-    DOM.innerHTML += `<nav> ${HTML} </nav>`;
 }
+submitDOM.addEventListener('click', (e) => {
+    e.preventDefault();
 
-const menu = [
-    {
+    optionDOM.innerText = kurisPazymetas(selectDOM)
 
-        href: '#',
-        title: 'Home'
+})
 
-    },
-    {
-
-        href: '#',
-        title: 'Services'
-
-    },
-    {
-
-        href: '#',
-        title: 'About us'
-
-    },
-    {
-
-        href: '#',
-        title: 'Contact us'
-
-    }
-];
-renderNav('header', menu);
