@@ -14,25 +14,27 @@ const renderBoard = (DOMelement, size) => {
     const rowHeight = 100 / size;
     const cellWidth = 100 / size
     let HTML = '';
-
+    // Rows ir cells generator
     for (let i = 0; i < size; i++) {
         let cell = ''
-        for (let j = 0; j < size; j++) {
-            if (j % 2 !== 0) {
+        // sudarineja cells
+        for (let c = 0; c < size; c++) {
+            if (c % 2 !== 0) {
                 cell += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
             }
             else {
                 cell += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
             }
         }
+
+        // Kuriame HTML su rows ir cells.
         HTML += `<div class="row" style="height: ${rowHeight}%;">
         ${cell} 
         </div > `;
 
     }
-
+    // finish line
     DOMelement.innerHTML = HTML;
 }
 
 
-// ${cellDiv.repeat(size)}  irgi veiktu vietoj for rasymo langeliams.

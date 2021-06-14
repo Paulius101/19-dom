@@ -16,18 +16,17 @@ const renderBoard = (DOMelement, size) => {
     let HTML = '';
 
     for (let i = 0; i < size; i++) {
-        let cellWhite = '';
-        let cellBlack = '';
-        for (let i = 0; i < size; i++) {
-            if (i % 2 !== 0) {
-                cellWhite += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
+        let cell = ''
+        for (let c = 0; c < size; c++) {
+            if (c % 2 !== 0) {
+                cell += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
             }
             else {
-                cellBlack += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
+                cell += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
             }
         }
         HTML += `<div class="row" style="height: ${rowHeight}%;">
-        ${cellBlack} ${cellWhite}
+        ${cell} 
         </div > `;
 
     }
