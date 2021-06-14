@@ -18,15 +18,26 @@ const renderBoard = (DOMelement, size) => {
     for (let i = 0; i < size; i++) {
         let cell = ''
         // sudarineja cells
-        for (let c = 0; c < size; c++) {
-            if (c % 2 !== 0) {
-                cell += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
-            }
-            else {
-                cell += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
+        if (i % 2 === 0) {
+            for (let c = 0; c < size; c++) {
+                if (c % 2 !== 0) {
+                    cell += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
+                }
+                else {
+                    cell += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
+                }
             }
         }
-
+        else {
+            for (let c = 0; c < size; c++) {
+                if (c % 2 === 0) {
+                    cell += `<div class="cell" style="width: ${cellWidth}% ;"></div>`;
+                }
+                else {
+                    cell += `<div class="cell" style="width: ${cellWidth}% ; background-color: black;"></div>`;
+                }
+            }
+        }
         // Kuriame HTML su rows ir cells.
         HTML += `<div class="row" style="height: ${rowHeight}%;">
         ${cell} 
