@@ -3,7 +3,7 @@ function tortoGabalas(tortuKiekis, zmoniuKiekis, tortoSvoris) {
     const svorisVienamZmogui = Math.floor(tortoSvoris * 1000 / vienamTortuiZmoniu);
     console.log(svorisVienamZmogui);
 }
-console.log(tortoGabalas(3, 17, 1))
+tortoGabalas(3, 17, 1)
 
 
 
